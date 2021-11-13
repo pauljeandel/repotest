@@ -148,7 +148,7 @@ nav .start-1,
 a:nth-child(1):hover~.animation {
     width: 100px;
     left: 0;
-    background-color: #eca01d;
+    background-color: #008138;
 }
 
 nav .start-2,
@@ -162,7 +162,7 @@ nav .start-3,
 a:nth-child(3):hover~.animation {
     width: 100px;
     left: 200px;
-    background-color: #eca01d;
+    background-color: #455581;
 }
 
 nav .start-4,
