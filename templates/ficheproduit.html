@@ -19,21 +19,28 @@
 </head>
 
 <body>
-
+    <div class="w-100 flex-center animate__animated animate__fadeIn animate__slow" style="position: absolute;z-index: 2;">
+        <nav>
+            <a href="#">Descr.</a>
+            <a href="#">Fiche</a>
+            <a href="#">Process</a>
+            <div class="animation start-2"></div>
+        </nav>
+    </div>
     <header class="masthead container-fluid position-relative ">
         <div class="row justify-content-center">
             <div class="col-xl-6">
                 <div class="text-center text-white animate__animated animate__fadeIn animate__slow">
                     <!-- Page heading-->
-                    <h1 class="mb-5">Générateur de fiche produit</h1>
+                    <h1 class="mb-5" style="font-weight: bolder;">Générateur de fiche produit</h1>
 
                     <form class="form-inline justify-content-center" id="formulaire">
                         <div class="form-group">
                             <input class="form-control" type="text" placeholder="Description du produit" id="ville">
                         </div>
-                        <button class="btn btn-primary mt-3" id="searchBarButton" type="button">Rechercher</button>
+                        <button class="btn btn-secondary mt-3" id="searchBarButton" type="button">Rechercher</button>
                         <br>
-                        <span class="text-danger" id="erreur_message"></span>
+                        <div class="w-100 flex-center" style="position: relative;"><span class="text-danger" id="erreur_message" style="position: absolute;top: 20px;"></span></div>
                     </form>
 
                 </div>
@@ -53,11 +60,15 @@
             $("#searchBarButton").addClass("animate__animated animate__infinite animate__rubberBand");
             $("#results").html('');
             let ville = $("#ville").val();
-            for (let index = 0; index < 3; index++) {
-                generate_fiche_produit(ville);
+            if (ville.length > 0) {
+                for (let index = 0; index < 3; index++) {
+                    generate_fiche_produit(ville);
+                }
+            } else {
+                alert_emty_ville();
             }
-
         });
+
         $('form input').keydown(function(e) {
             if (e.keyCode == 13) {
                 e.preventDefault();
@@ -65,6 +76,12 @@
                 return false;
             }
         });
+
+        function alert_emty_ville() {
+            $("#erreur_message").html("Veuillez saisir une ville");
+            $("#searchBarButton").html("Rechercher");
+            $("#searchBarButton").removeClass("animate__animated animate__infinite animate__rubberBand");
+        }
 
         function generate_fiche_produit(ville) {
             $.post("http://127.0.0.1:5000/api/ficheproduit", {
