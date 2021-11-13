@@ -35,3 +35,6 @@ def fiche_produit():
 @app.route("/")
 def ficheproduit():
     return render_template('ficheproduit.html')
+
+if __name__ == "__main__":
+    app.run()
