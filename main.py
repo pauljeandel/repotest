@@ -16,7 +16,7 @@ def fiche_produit():
     lenght = request.form['taille']
     question_en = translator.translate_text(question, target_lang="EN-US")
     print(question_en)
-    question_complete = "Write a creative description for the following product\n\"\"\"\"\"\"\n" + str(question_en) + "\n\"\"\"\"\"\"\nThis is the description I wrote for an online shop\n\"\"\"\"\"\n"
+    question_complete = "Write a creative description for the following product:\n\"\"\"\"\"\"\n" + str(question_en) + "\n\"\"\"\"\"\"\nThis is the description I wrote for an online shop:\n\"\"\"\"\"\n"
 
     response = openai.Completion.create(
     engine="davinci-instruct-beta",
