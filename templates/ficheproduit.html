@@ -6,7 +6,7 @@
     <title>Générateur fiche produit</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/moment.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/moment.js') }}"></script> -->
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
@@ -83,7 +83,7 @@
         }
 
         function generate_fiche_produit(ville) {
-            $.post("http://127.0.0.1:5000/api/ficheproduit", {
+            $.post("http://beta-boutigo.mpdev.info/api/ficheproduit", {
                     text: ville,
                     taille: 150
                 },
