@@ -36,5 +36,9 @@ def fiche_produit():
 def ficheproduit():
     return render_template('ficheproduit.html')
 
+@app.route("/doc")
+def doc():
+    return render_template('doc.html')
+
 if __name__ == "__main__":
     app.run()
